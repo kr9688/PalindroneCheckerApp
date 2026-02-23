@@ -1,34 +1,19 @@
-# PalindroneCheckerApp
-/**
-* =============================================================
-* MAIN CLASS – UseCase1PalindromeApp
-* =============================================================
-*
-* Use Case 1: Application Entry & Welcome Message
-*
-* Description:
-* This class represents the entry point of the
-* Palindrome Checker Management System.
-*
-* At this stage, the application:
-* - Starts execution from the main() method
-* - Displays a welcome message
-* - Shows application version
-*
-* No palindrome logic is implemented yet.
-*
-* The goal is to establish a clear startup flow.
-*
-* @author Krish Rathi
-* @version 1.0
-  */
-  public class PalindroneCheckerApp {
+PalindromeChecker App (UC3)
 
-  /**
-    * Application entry point.
-    *
-    * This is the first method executed by the JVM
-    * when the program starts.
-    *
-    * @param args Command-line arguments
-      */
+A simple console-based Java application that checks whether a given string is a palindrome by reversing it using a for loop.
+
+This project strengthens fundamental Java concepts including loops, string handling, immutability, and content comparison.
+
+ Objective
+
+The objective of this use case (UC3) is to:
+
+1.Reverse a string using a for loop
+
+2.Compare the reversed string with the original
+
+3.Display whether the string is a palindrome
+
+4.Understand how String immutability works in Java
+
+5.Use equals() for proper string comparison
