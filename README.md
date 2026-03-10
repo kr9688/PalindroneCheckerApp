@@ -2,49 +2,53 @@
 
 ## Objective
 
-The objective of the PalindromeChecker App is to design and implement a console-based Java application that validates whether a given string is a palindrome under different conditions while strengthening programming fundamentals and data structure concepts.
+The objective of the PalindromeChecker App is to design and implement a console-based Java application that validates whether a given string is a palindrome while strengthening programming fundamentals and data structure concepts.
 
 ---
 
-## Use Case 7: Deque-Based Optimized Palindrome Checker
+## Use Case 8: Linked List Based Palindrome Checker
 
 ### Goal
 
-Use a Deque (Double Ended Queue) to compare characters from the front and rear of the string efficiently.
+Check whether a string is a palindrome by converting the string into a singly linked list and comparing the two halves of the list.
 
 ---
 
 ## Project Flow
 
 1. Accept a string input from the user.
-2. Insert each character of the string into a Deque.
-3. Remove the first and last characters from the deque.
-4. Compare the removed characters.
-5. If they match, continue comparing until the deque becomes empty or has one element.
-6. If any mismatch occurs, the string is not a palindrome.
-7. Display the result to the user.
+2. Convert each character of the string into a node of a singly linked list.
+3. Use the fast and slow pointer technique to locate the middle of the list.
+4. Reverse the second half of the linked list.
+5. Compare the first half with the reversed second half.
+6. If all nodes match, the string is a palindrome.
+7. Display the result.
 
 ---
 
 ## Key Concepts Used
 
-### Deque (Double Ended Queue)
+### Singly Linked List
 
-A data structure that allows insertion and deletion from both the **front** and **rear**.
+A dynamic data structure where elements are stored in nodes and connected using references.
 
-### Front and Rear Access
+### Node Traversal
 
-Deque allows direct access to both ends of the data structure, making it efficient for palindrome comparisons.
+Accessing each element sequentially using the `next` reference.
 
-### Optimized Data Handling
+### Fast and Slow Pointer Technique
 
-This method avoids creating separate reversed structures because both ends can be accessed directly.
+Two pointers move at different speeds to efficiently find the middle of the linked list.
+
+### In-Place Reversal
+
+The second half of the linked list is reversed without using extra memory.
 
 ---
 
 ## Data Structure Used
 
-Deque (java.util.ArrayDeque)
+Singly Linked List
 
 ---
 
@@ -53,7 +57,7 @@ Deque (java.util.ArrayDeque)
 Compile the program using:
 
 ```
-javac UseCase7PalindromeCheckerApp.java
+javac UseCase8PalindromeCheckerApp.java
 ```
 
 ---
@@ -63,7 +67,7 @@ javac UseCase7PalindromeCheckerApp.java
 Run the program using:
 
 ```
-java UseCase7PalindromeCheckerApp
+java UseCase8PalindromeCheckerApp
 ```
 
 ---
@@ -90,4 +94,4 @@ The string is NOT a Palindrome.
 
 ## Conclusion
 
-This use case demonstrates an optimized palindrome validation approach using a Deque. By comparing elements from both ends directly, the algorithm becomes efficient and avoids the need for additional reversal data structures.
+This use case demonstrates how a singly linked list can be used to validate palindrome logic efficiently by using pointer techniques and in-place list reversal.
