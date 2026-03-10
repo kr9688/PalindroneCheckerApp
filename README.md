@@ -1,91 +1,92 @@
-# Palindrome Checker App
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
-## Objective
+public class UseCase13PalindromeCheckerApp {
 
-The objective of the PalindromeChecker App is to design and implement a console-based Java application that validates whether a given string is a palindrome under different conditions while strengthening programming fundamentals and software design principles.
+    // Method 1: Two Pointer Method
+    public static boolean twoPointerCheck(String str) {
+        int start = 0;
+        int end = str.length() - 1;
 
----
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 
-## Use Case 12: Strategy Pattern for Palindrome Algorithms
+    // Method 2: Stack Method
+    public static boolean stackCheck(String str) {
 
-### Goal
+        Stack<Character> stack = new Stack<>();
 
-Select different palindrome checking algorithms dynamically using the Strategy Design Pattern.
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
+        }
 
----
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != stack.pop()) {
+                return false;
+            }
+        }
 
-## Project Flow
+        return true;
+    }
 
-1. Accept a string input from the user.
-2. Define a `PalindromeStrategy` interface.
-3. Implement multiple strategies such as `StackStrategy` and `DequeStrategy`.
-4. Allow the user to select the strategy at runtime.
-5. Execute the selected algorithm to check whether the string is a palindrome.
-6. Display the result.
+    // Method 3: Deque Method
+    public static boolean dequeCheck(String str) {
 
----
+        Deque<Character> deque = new ArrayDeque<>();
 
-## Key Concepts Used
+        for (int i = 0; i < str.length(); i++) {
+            deque.addLast(str.charAt(i));
+        }
 
-### Interface
+        while (deque.size() > 1) {
 
-Defines a common contract for different palindrome checking strategies.
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
 
-### Polymorphism
+            if (first != last) {
+                return false;
+            }
+        }
 
-Different implementations of the same interface can be used interchangeably.
+        return true;
+    }
 
-### Strategy Pattern
+    public static void main(String[] args) {
 
-A design pattern that allows selecting an algorithm at runtime without modifying the client code.
+        Scanner scanner = new Scanner(System.in);
 
----
+        System.out.println("Enter a string:");
+        String input = scanner.nextLine();
 
-## Data Structures Used
+        // Two Pointer Performance
+        long start1 = System.nanoTime();
+        boolean result1 = twoPointerCheck(input);
+        long end1 = System.nanoTime();
 
-* Stack
-* Deque
+        // Stack Performance
+        long start2 = System.nanoTime();
+        boolean result2 = stackCheck(input);
+        long end2 = System.nanoTime();
 
-Each strategy can use a different data structure internally.
+        // Deque Performance
+        long start3 = System.nanoTime();
+        boolean result3 = dequeCheck(input);
+        long end3 = System.nanoTime();
 
----
+        System.out.println("\nResults:");
+        System.out.println("Two Pointer Result: " + result1 + " | Time: " + (end1 - start1) + " ns");
+        System.out.println("Stack Result: " + result2 + " | Time: " + (end2 - start2) + " ns");
+        System.out.println("Deque Result: " + result3 + " | Time: " + (end3 - start3) + " ns");
 
-## Program Compilation
-
-Compile the program using:
-
-```
-javac UseCase12PalindromeCheckerApp.java
-```
-
----
-
-## Program Execution
-
-Run the program using:
-
-```
-java UseCase12PalindromeCheckerApp
-```
-
----
-
-## Example Output
-
-```
-Enter a string:
-madam
-
-Choose Algorithm:
-1. Stack Strategy
-2. Deque Strategy
-
-1
-The string is a Palindrome.
-```
-
----
-
-## Conclusion
-
-This use case demonstrates how the Strategy Design Pattern enables flexible selection of different palindrome algorithms while promoting clean, modular, and maintainable code.
+        scanner.close();
+    }
+}
