@@ -2,57 +2,49 @@
 
 ## Objective
 
-The objective of the PalindromeChecker App is to design and implement a console-based Java application that validates whether a given string is a palindrome under different conditions while strengthening core programming fundamentals and data structure concepts.
+The objective of the PalindromeChecker App is to design and implement a console-based Java application that validates whether a given string is a palindrome while strengthening core programming fundamentals and object-oriented programming concepts.
 
 ---
 
-## Use Case 10: Case-Insensitive & Space-Ignored Palindrome
+## Use Case 11: Object-Oriented Palindrome Service
 
 ### Goal
 
-Check whether a string is a palindrome while ignoring spaces and character case.
+Encapsulate the palindrome checking logic inside a dedicated class and expose a method to verify whether a string is a palindrome.
 
 ---
 
 ## Project Flow
 
 1. Accept a string input from the user.
-2. Normalize the string by:
-
-    * Removing spaces.
-    * Converting all characters to lowercase.
-3. Compare characters from the beginning and end of the string.
-4. If characters match, continue comparison.
-5. If any mismatch occurs, the string is not a palindrome.
-6. Display the result.
+2. Create a `PalindromeChecker` class.
+3. Implement the `checkPalindrome()` method inside the class.
+4. Pass the input string to the method.
+5. The method checks whether the string is a palindrome.
+6. Return the result to the main application.
+7. Display the result to the user.
 
 ---
 
 ## Key Concepts Used
 
-### String Preprocessing
+### Encapsulation
 
-The input string is cleaned before comparison to remove unnecessary characters like spaces.
+The palindrome checking logic is encapsulated inside the `PalindromeChecker` class.
 
-### Regular Expressions
+### Single Responsibility Principle
 
-Used to remove spaces from the string.
+The `PalindromeChecker` class is responsible only for validating whether a string is a palindrome.
 
-Example:
+### Method Abstraction
 
-```
-replaceAll("\\s+", "")
-```
-
-### Case Normalization
-
-Converts all characters to lowercase so comparisons are case-insensitive.
+The `checkPalindrome()` method exposes the functionality without exposing internal implementation details.
 
 ---
 
 ## Data Structure Used
 
-String / Character Array
+Internal logic uses simple string indexing (array-like access).
 
 ---
 
@@ -61,7 +53,7 @@ String / Character Array
 Compile the program using:
 
 ```
-javac UseCase10PalindromeCheckerApp.java
+javac UseCase11PalindromeCheckerApp.java
 ```
 
 ---
@@ -71,7 +63,7 @@ javac UseCase10PalindromeCheckerApp.java
 Run the program using:
 
 ```
-java UseCase10PalindromeCheckerApp
+java UseCase11PalindromeCheckerApp
 ```
 
 ---
@@ -82,7 +74,7 @@ Example 1
 
 ```
 Enter a string:
-Never Odd Or Even
+madam
 The string is a Palindrome.
 ```
 
@@ -90,7 +82,7 @@ Example 2
 
 ```
 Enter a string:
-Hello World
+hello
 The string is NOT a Palindrome.
 ```
 
@@ -98,4 +90,4 @@ The string is NOT a Palindrome.
 
 ## Conclusion
 
-This use case demonstrates how preprocessing techniques such as removing spaces and ignoring case can improve palindrome validation for real-world text inputs.
+This use case demonstrates how object-oriented design principles such as encapsulation and single responsibility can be applied to organize palindrome validation logic in a reusable and maintainable structure.
